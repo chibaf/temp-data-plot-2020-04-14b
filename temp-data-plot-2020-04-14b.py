@@ -2,35 +2,6 @@ import csv
 import sys
 import matplotlib.pyplot as plt
 
-def MovingAverage(x):  # Moving Avarage with ten terms
-  r=[]
-  for i in range(5,len(x)-5):
-    s=x[i]
-    for j in range(0,5):
-      if j==0: s=s+x[i-5+j]*0.5
-      else: s=s+x[i-5+j]
-    for j in range(0,5):
-      if j==4:s=s+x[i+1+j]*0.5
-      else: s=s+x[i+1+j]
-    s=s/10.0
-    r.append(s)
-  return r
-  
-def RotateLeft(x,n):  # n <= len(x)
-  r=[]
-  for i in range(0,len(x)):
-    if i+n<len(x):
-      r.append(x[i+n])
-    else:
-      r.append(x[i+n-len(x)])
-  return r
-  
-def DotProduct(x,y):  # inner product
-  r=0
-  for i in range(0,len(x)):
-    r=r+x[i]*y[i]
-  return r
-       
 filename=sys.argv[1]  # name of input file = csv file
 
 a=[]
